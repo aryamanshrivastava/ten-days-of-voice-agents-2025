@@ -1,5 +1,8 @@
 import logging
-
+import json
+import zoneinfo
+from datetime import datetime
+from pathlib import Path
 from dotenv import load_dotenv
 from livekit.agents import (
     Agent,
@@ -12,8 +15,8 @@ from livekit.agents import (
     cli,
     metrics,
     tokenize,
-    # function_tool,
-    # RunContext
+    function_tool,
+    RunContext
 )
 from livekit.plugins import murf, silero, google, deepgram, noise_cancellation
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
@@ -25,12 +28,58 @@ load_dotenv(".env.local")
 
 class Assistant(Agent):
     def __init__(self) -> None:
+
+        # initial empty order state matching the requested schema
+        self.order_state = {
+            "drinkType": "",
+            "size": "",
+            "milk": "",
+            "extras": [],
+            "name": ""
+        }
+        
+        # required fields in order to be considered complete (extras can be empty list)
+        self._required_fields = ["drinkType", "size", "milk", "name"]
+
         super().__init__(
-            instructions="""You are a helpful voice AI assistant. The user is interacting with you via voice, even if you perceive the conversation as text.
-            You eagerly assist users with their questions by providing information from your extensive knowledge.
-            Your responses are concise, to the point, and without any complex formatting or punctuation including emojis, asterisks, or other symbols.
-            You are curious, friendly, and have a sense of humor.""",
+            instructions=(
+                "You are a friendly barista for Third Wave Coffee. When the user begins the "
+                "conversation with greetings like hello, hi, or good morning, respond warmly with: "
+                "'Hey, welcome to Third Wave Coffee! What would you like to have today?' "
+                "After the greeting, collect an order by filling these fields in this exact sequence: "
+                "drinkType, size, milk, extras, name. Ask only one short question at a time "
+                "and wait for the user's answer. After each user answer, call the function tool "
+                "'set_order_field(field, value)'. Use get_order_state() when needed. "
+                "When all fields are filled, save the order and respond with a one-sentence confirmation."
+            )
         )
+
+
+    def _is_complete(self) -> bool:
+            for f in self._required_fields:
+                if not self.order_state.get(f):
+                    return False
+            # extras may be empty list
+            return True
+        
+    def _save_order_to_file(self) -> str:
+            """Save the current order_state to a timestamped JSON file. Return the path."""
+            out_dir = Path.cwd() / "orders"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            ist = zoneinfo.ZoneInfo("Asia/Kolkata")
+            ts = datetime.now(ist).strftime("%Y-%m-%dT%H-%M-%S")
+            filename = out_dir / f"order_aryaman{ts}.json"
+            with open(filename, "w", encoding="utf-8") as f:
+                json.dump(self.order_state, f, indent=2, ensure_ascii=False)
+            logger.info(f"Saved order to {filename} (cwd={Path.cwd()})")
+            return str(filename)
+
+        # super().__init__(
+        #     instructions="""You are a helpful voice AI assistant. The user is interacting with you via voice, even if you perceive the conversation as text.
+        #     You eagerly assist users with their questions by providing information from your extensive knowledge.
+        #     Your responses are concise, to the point, and without any complex formatting or punctuation including emojis, asterisks, or other symbols.
+        #     You are curious, friendly, and have a sense of humor.""",
+        # )
 
     # To add tools, use the @function_tool decorator.
     # Here's an example that adds a simple weather tool.
@@ -48,6 +97,46 @@ class Assistant(Agent):
     #     logger.info(f"Looking up weather for {location}")
     #
     #     return "sunny with a temperature of 70 degrees."
+    
+    @function_tool
+    async def set_order_field(self, context: RunContext, field: str, value: str):
+        """
+        Save a single field into the order state.
+        - field: one of drinkType, size, milk, extras, name
+        - value: string value provided by user. For extras, comma-separated values will be parsed into a list.
+        This function will update the assistant's internal order_state and, when the order is complete,
+        save it to a JSON file and return the saved filename.
+        """
+        field = field.strip()
+        if field not in self.order_state:
+            return {"ok": False, "error": f"unknown field '{field}'", "order": self.order_state}
+
+        # parse extras as list
+        if field == "extras":
+            if isinstance(value, str) and value.strip():
+                extras = [e.strip() for e in value.split(",") if e.strip()]
+            else:
+                extras = []
+            self.order_state["extras"] = extras
+        else:
+            # simple string fields
+            self.order_state[field] = value.strip()
+
+        completed = self._is_complete()
+        result = {"ok": True, "completed": completed, "order": self.order_state}
+
+        if completed:
+            saved_path = self._save_order_to_file()
+            result["saved_path"] = saved_path
+
+        return result
+
+    @function_tool
+    async def get_order_state(self, context: RunContext):
+        """
+        Return the current order state so the model can determine what to ask next.
+        """
+        return {"order": self.order_state, "completed": self._is_complete()}
 
 
 def prewarm(proc: JobProcess):
