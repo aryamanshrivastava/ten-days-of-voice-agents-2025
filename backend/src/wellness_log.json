@@ -8,5 +8,15 @@
       "take a short break"
     ],
     "timestamp": "2025-11-24T09:00:26.504228Z"
+  },
+  {
+    "energy": "a little unfocused",
+    "mood": "pretty good",
+    "objectives": [
+      "organize my workspace",
+      "listen to some music"
+    ],
+    "summary": "User is feeling pretty good but a little unfocused, aiming to organize their workspace and listen to music today.",
+    "timestamp": "2025-11-24T09:05:49.320465Z"
   }
 ]
