@@ -1,0 +1,12 @@
+[
+  {
+    "summary": "User is feeling okay and a bit tired, aims to finish work and take a break.",
+    "energy": "a bit tired",
+    "mood": "okay",
+    "objectives": [
+      "finish work tasks",
+      "take a short break"
+    ],
+    "timestamp": "2025-11-24T09:00:26.504228Z"
+  }
+]
