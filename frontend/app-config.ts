@@ -32,8 +32,8 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   logo: '/lk-logo.svg',
   accent: '#002cf2',
   logoDark: '/lk-logo-dark.svg',
-  accentDark: '#1fd5f9',
-  startButtonText: 'Start call',
+  accentDark: '#387ed1',
+  startButtonText: 'Start Talking',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,
