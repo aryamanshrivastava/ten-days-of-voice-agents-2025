@@ -20,20 +20,20 @@ export interface AppConfig {
 }
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
-  companyName: 'LiveKit',
-  pageTitle: 'LiveKit Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+  companyName: 'AU Small Finance Bank',
+  pageTitle: 'AU Small Finance Bank Voice Agent',
+  pageDescription: 'Report frauds easily with our Voice AI agent.',
 
   supportsChatInput: true,
   supportsVideoInput: true,
   supportsScreenShare: true,
   isPreConnectBufferEnabled: true,
 
-  logo: '/lk-logo.svg',
+  logo: '/au1.png',
   accent: '#002cf2',
-  logoDark: '/lk-logo-dark.svg',
-  accentDark: '#1fd5f9',
-  startButtonText: 'Start call',
+  logoDark: '/au2.png',
+  accentDark: '#fd5f04',
+  startButtonText: 'Start Call',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,
