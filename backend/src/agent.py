@@ -72,7 +72,7 @@ def _init_sample_db() -> None:
         sample_cases: List[Dict[str, Any]] = [
             {
                 "case_id": 1,
-                "userName": "Aryaman",
+                "userName": "Sachin",
                 "securityIdentifier": "AUSF-00123",
                 "maskedCard": "**** **** **** 4242",
                 "cardEnding": "4242",
@@ -90,7 +90,7 @@ def _init_sample_db() -> None:
             },
             {
                 "case_id": 2,
-                "userName": "Shashank",
+                "userName": "Amit",
                 "securityIdentifier": "AUSF-00456",
                 "maskedCard": "**** **** **** 9911",
                 "cardEnding": "9911",
@@ -102,13 +102,13 @@ def _init_sample_db() -> None:
                 "location": "Singapore",
                 "timestamp": "2025-11-21 09:10:45",
                 "securityQuestion": "What is your nickname?",
-                "securityAnswer": "shashank",
+                "securityAnswer": "amit",
                 "status": "pending_review",
                 "outcomeNote": "",
             },
             {
                 "case_id": 3,
-                "userName": "Kartikey",
+                "userName": "Rahul",
                 "securityIdentifier": "AUSF-00789",
                 "maskedCard": "**** **** **** 7788",
                 "cardEnding": "7788",
