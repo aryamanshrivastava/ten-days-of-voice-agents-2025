@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 import streamlit as st
 
-st.title("PS: Dummy Data Used")
+st.title("PS: Dummy Data Used.")
 st.title("AU Small Finance Bank Fraud Cases")
 
 
