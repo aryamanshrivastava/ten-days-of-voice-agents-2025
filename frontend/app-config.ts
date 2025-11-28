@@ -20,20 +20,20 @@ export interface AppConfig {
 }
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
-  companyName: 'LiveKit',
-  pageTitle: 'LiveKit Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+  companyName: 'Flipkart',
+  pageTitle: 'Flipmin Voice Agent',
+  pageDescription: 'A voice agent built for Flipkart customers.',
 
   supportsChatInput: true,
   supportsVideoInput: true,
   supportsScreenShare: true,
   isPreConnectBufferEnabled: true,
 
-  logo: '/lk-logo.svg',
+  logo: '/icon.png',
   accent: '#002cf2',
-  logoDark: '/lk-logo-dark.svg',
-  accentDark: '#1fd5f9',
-  startButtonText: 'Start call',
+  logoDark: '/icon.png',
+  accentDark: '#ffffff',
+  startButtonText: 'Order Here',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,

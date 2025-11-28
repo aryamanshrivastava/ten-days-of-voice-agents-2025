@@ -107,7 +107,7 @@ export default async function Image() {
 
   const pageTitle = cleanPageTitle(appConfig.pageTitle);
   const logoUri = appConfig.logoDark || appConfig.logo;
-  const isLogoUriLocal = logoUri.includes('lk-logo');
+  const isLogoUriLocal = logoUri.includes('flip.png');
   const wordmarkUri = logoUri === APP_CONFIG_DEFAULTS.logoDark ? 'public/lk-wordmark.svg' : logoUri;
 
   // Load fonts - use file system in dev, fetch in production
@@ -134,7 +134,7 @@ export default async function Image() {
   // logo
   const { base64: logoSrcBase64, dimensions: logoDimensions } = await getImageData(
     logoUri,
-    'public/lk-logo-dark.svg'
+    'public/icon.png'
   );
   const logoSize = scaleImageSize(logoDimensions, 24);
 
