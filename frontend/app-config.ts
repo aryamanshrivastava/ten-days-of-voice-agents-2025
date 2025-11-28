@@ -21,7 +21,7 @@ export interface AppConfig {
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
   companyName: 'Flipkart',
-  pageTitle: 'Flipmin Voice Agent',
+  pageTitle: 'FlipMin',
   pageDescription: 'A voice agent built for Flipkart customers.',
 
   supportsChatInput: true,
@@ -33,7 +33,7 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   accent: '#002cf2',
   logoDark: '/icon.png',
   accentDark: '#ffffff',
-  startButtonText: 'Order Here',
+  startButtonText: 'Order Now',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,

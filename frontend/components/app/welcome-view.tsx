@@ -42,7 +42,7 @@ export const WelcomeView = ({
         />
 
         <p className="text-foreground max-w-prose pt-1 leading-6 font-medium">
-          Order your favorite items from our flipmin agent.
+          Place order from our FlipMin.
         </p>
 
         <Button
