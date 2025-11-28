@@ -1,0 +1,37 @@
+{
+  "order_id": "TR-1764323277",
+  "timestamp": "2025-11-28T15:17:57.329882",
+  "status": "Order Placed",
+  "customer": {
+    "name": "Ariman",
+    "delivery_address": "HSR Bangalore"
+  },
+  "items": [
+    {
+      "id": "banana_1dozen",
+      "name": "Banana",
+      "category": "produce",
+      "unit_price": 60.0,
+      "quantity": 2,
+      "line_total": 120.0
+    },
+    {
+      "id": "prepared_margherita_pizza",
+      "name": "Margherita Pizza (Frozen)",
+      "category": "prepared_food",
+      "unit_price": 299.0,
+      "quantity": 1,
+      "line_total": 299.0
+    },
+    {
+      "id": "snacks_chips_masala_100g",
+      "name": "Masala Potato Chips",
+      "category": "snacks",
+      "unit_price": 35.0,
+      "quantity": 1,
+      "line_total": 35.0
+    }
+  ],
+  "total_amount": 454.0,
+  "currency": "INR"
+}

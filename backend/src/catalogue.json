@@ -1,0 +1,92 @@
+[
+  {
+    "id": "orange_juice_1l",
+    "name": "Orange Juice",
+    "category": "drinks",
+    "price": 160.0,
+    "brand": "SunSip",
+    "size": "1L",
+    "tags": ["drink", "fruit"]
+  },
+  {
+    "id": "whole_wheat_bread",
+    "name": "Whole Wheat Bread",
+    "category": "bakery",
+    "price": 110.0,
+    "brand": "Modern",
+    "size": "400g",
+    "tags": ["bread", "bakery"]
+  },
+  {
+    "id": "banana_1dozen",
+    "name": "Banana",
+    "category": "produce",
+    "price": 60.0,
+    "brand": "FreshFarm",
+    "size": "12 pcs",
+    "tags": ["fruit", "fresh"]
+  },
+  {
+    "id": "apple_red_1kg",
+    "name": "1kg - Apples",
+    "category": "produce",
+    "price": 180.0,
+    "brand": "OrchardBest",
+    "size": "1kg",
+    "tags": ["fruit", "fresh"]
+  },
+  {
+    "id": "yogurt_plain_500g",
+    "name": "Yogurt",
+    "category": "groceries",
+    "price": 90.0,
+    "brand": "YumiDairy",
+    "size": "500g",
+    "tags": ["dairy", "vegetarian"]
+  },
+  {
+    "id": "spinach_fresh_250g",
+    "name": "Spinach",
+    "category": "produce",
+    "price": 70.0,
+    "brand": "GreenLeaf",
+    "size": "250g",
+    "tags": ["vegetable", "fresh", "vegan"]
+  },
+  {
+    "id": "milk_toned_1l",
+    "name": "Toned Milk",
+    "category": "groceries",
+    "price": 60.0,
+    "brand": "DailyDairy",
+    "size": "1L",
+    "tags": ["vegetarian"]
+  },
+  {
+    "id": "eggs_regular_6",
+    "name": "Farm Eggs - Pack of 6",
+    "category": "groceries",
+    "price": 75.0,
+    "brand": "HappyHen",
+    "size": "6 pcs",
+    "tags": ["non-veg"]
+  },
+    {
+    "id": "prepared_margherita_pizza",
+    "name": "Margherita Pizza (Frozen)",
+    "category": "prepared_food",
+    "price": 299.0,
+    "brand": "Heat&Eat",
+    "size": "9 inch",
+    "tags": ["vegetarian"]
+  },
+    {
+    "id": "snacks_chips_masala_100g",
+    "name": "Masala Potato Chips",
+    "category": "snacks",
+    "price": 35.0,
+    "brand": "CrispyBite",
+    "size": "100g",
+    "tags": ["vegetarian"]
+  }
+]
