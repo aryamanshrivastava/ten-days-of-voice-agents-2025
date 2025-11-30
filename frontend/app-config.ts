@@ -20,9 +20,9 @@ export interface AppConfig {
 }
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
-  companyName: 'LiveKit',
-  pageTitle: 'LiveKit Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+  companyName: 'Amazon Shopping Assistant',
+  pageTitle: 'Amazon Voice Agent',
+  pageDescription: 'A voice agent built with Amazon',
 
   supportsChatInput: true,
   supportsVideoInput: true,
@@ -32,8 +32,8 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   logo: '/lk-logo.svg',
   accent: '#002cf2',
   logoDark: '/lk-logo-dark.svg',
-  accentDark: '#1fd5f9',
-  startButtonText: 'Start call',
+  accentDark: '#ffffff',
+  startButtonText: 'Start Order',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,
