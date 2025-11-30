@@ -464,7 +464,7 @@ async def entrypoint(ctx: JobContext):
         stt=deepgram.STT(model="nova-3"),
         llm=google.LLM(model="gemini-2.5-flash"),
         tts=murf.TTS(
-            voice="en-US-Hazel",
+            voice="en-UK-Hazel",
             style="Conversational",
             text_pacing=True,
         ),
