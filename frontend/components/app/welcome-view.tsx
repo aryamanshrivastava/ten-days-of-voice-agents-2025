@@ -50,7 +50,7 @@ export const WelcomeView = React.forwardRef<HTMLDivElement, any>(
     return (
       <div
         ref={ref}
-        className="flex min-h-screen w-full flex-col items-center justify-center bg-transparent text-white md:pr-24 lg:pr-32"
+        className="flex min-h-screen w-full flex-col items-center justify-center bg-transparent text-white"
       >
         {!started && (
           <section
@@ -131,13 +131,13 @@ export const WelcomeView = React.forwardRef<HTMLDivElement, any>(
         )}
 
         {started && (
-          <div className="md:pr-12 text-center text-2xl font-bold text-white drop-shadow-lg animate-pulse">
+          <div className="text-center text-2xl font-bold text-white drop-shadow-lg animate-pulse">
             🎤 Warming up the mic…
           </div>
         )}
       </div>
     );
-  },
+  }
 );
 
 WelcomeView.displayName = 'WelcomeView';
